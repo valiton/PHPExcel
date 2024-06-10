@@ -1249,15 +1249,14 @@ class PHPExcel_Writer_Excel2007_Chart extends PHPExcel_Writer_Excel2007_WriterPa
     /**
      * Write Plot Series Values
      *
-     * @param  PHPExcel_Chart_DataSeriesValues $plotSeriesValues
-     * @param  PHPExcel_Shared_XMLWriter $objWriter XML Writer
-     * @param  string $groupType Type of plot for dataseries
-     * @param  string $dataType Datatype of series values
-     * @param  PHPExcel_Worksheet $pSheet
+     * @param PHPExcel_Chart_DataSeriesValues $plotSeriesValues
+     * @param PHPExcel_Shared_XMLWriter $objWriter XML Writer
+     * @param string $groupType Type of plot for dataseries
+     * @param string $dataType Datatype of series values
+     * @param PHPExcel_Worksheet|null $pSheet
      *
-     * @throws  PHPExcel_Writer_Exception
      */
-    private function writePlotSeriesValues($plotSeriesValues, $objWriter, $groupType, $dataType = 'str', PHPExcel_Worksheet $pSheet)
+    private function writePlotSeriesValues($plotSeriesValues, $objWriter, $groupType, $dataType = 'str', PHPExcel_Worksheet $pSheet = null): void
     {
         if (is_null($plotSeriesValues)) {
             return;

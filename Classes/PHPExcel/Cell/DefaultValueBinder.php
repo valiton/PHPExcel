@@ -67,10 +67,10 @@ class PHPExcel_Cell_DefaultValueBinder implements PHPExcel_Cell_IValueBinder
     /**
      * DataType for value
      *
-     * @param   mixed  $pValue
+     * @param mixed|null $pValue
      * @return  string
      */
-    public static function dataTypeForValue($pValue = null)
+    public static function dataTypeForValue(mixed $pValue = null): string
     {
         // Match the value against a few data types
         if ($pValue === null) {
@@ -79,7 +79,7 @@ class PHPExcel_Cell_DefaultValueBinder implements PHPExcel_Cell_IValueBinder
             return PHPExcel_Cell_DataType::TYPE_STRING;
         } elseif ($pValue instanceof PHPExcel_RichText) {
             return PHPExcel_Cell_DataType::TYPE_INLINE;
-        } elseif ($pValue{0} === '=' && strlen($pValue) > 1) {
+        } elseif (is_string($pValue) && $pValue[0] === '=' && strlen($pValue) > 1) {
             return PHPExcel_Cell_DataType::TYPE_FORMULA;
         } elseif (is_bool($pValue)) {
             return PHPExcel_Cell_DataType::TYPE_BOOL;

@@ -1181,8 +1181,8 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
     /**
      * Get cell at a specific coordinate by using numeric cell coordinates
      *
-     * @param  string $pColumn Numeric column coordinate of the cell (starting from 0)
-     * @param string $pRow Numeric row coordinate of the cell
+     * @param string|int $pColumn Numeric column coordinate of the cell (starting from 0)
+     * @param string|int $pRow Numeric row coordinate of the cell
      * @param boolean $createIfNotExists  Flag indicating whether a new cell should be created if it doesn't
      *                                       already exist, or a null should be returned instead
      * @return null|PHPExcel_Cell Cell that was found/created or null
@@ -1474,7 +1474,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
      * @param $pValue PHPExcel_Style_Conditional[]
      * @return PHPExcel_Worksheet
      */
-    public function setConditionalStyles($pCoordinate = 'A1', $pValue)
+    public function setConditionalStyles(string $pCoordinate = 'A1', array $pValue = []): static
     {
         $this->conditionalStylesCollection[strtoupper($pCoordinate)] = $pValue;
         return $this;
@@ -1485,11 +1485,11 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
      *
      * @param int $pColumn  Numeric column coordinate of the cell
      * @param int $pRow Numeric row coordinate of the cell
-     * @param int pColumn2 Numeric column coordinate of the range cell
-     * @param int pRow2 Numeric row coordinate of the range cell
+     * @param int|null $pColumn2 Numeric column coordinate of the range cell
+     * @param int|null $pRow2 Numeric row coordinate of the range cell
      * @return PHPExcel_Style
      */
-    public function getStyleByColumnAndRow($pColumn = 0, $pRow = 1, $pColumn2 = null, $pRow2 = null)
+    public function getStyleByColumnAndRow(int $pColumn = 0, int $pRow = 1, int $pColumn2 = null, int $pRow2 = null): PHPExcel_Style
     {
         if (!is_null($pColumn2) && !is_null($pRow2)) {
             $cellRange = PHPExcel_Cell::stringFromColumnIndex($pColumn) . $pRow . ':' . PHPExcel_Cell::stringFromColumnIndex($pColumn2) . $pRow2;

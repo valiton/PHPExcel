@@ -824,13 +824,13 @@ class PHPExcel_Writer_Excel5_Workbook extends PHPExcel_Writer_Excel5_BIFFwriter
     /**
      * Write a short NAME record
      *
-     * @param    string         $name
-     * @param    string         $sheetIndex        1-based sheet index the defined name applies to. 0 = global
-     * @param    integer[][]  $rangeBounds    range boundaries
-     * @param    boolean      $isHidden
+     * @param string $name
+     * @param int|string $sheetIndex        1-based sheet index the defined name applies to. 0 = global
+     * @param integer[][] $rangeBounds    range boundaries
+     * @param boolean $isHidden
      * @return    string    Complete binary record data
      * */
-    private function writeShortNameBiff8($name, $sheetIndex = 0, $rangeBounds, $isHidden = false)
+    private function writeShortNameBiff8(string $name = '', int|string $sheetIndex = 0, array $rangeBounds = [], bool $isHidden = false): string
     {
         $record = 0x0018;
 

@@ -66,15 +66,15 @@ class PHPExcel_Shared_Drawing
      * By inspection of a real Excel file using Calibri 11, one finds 1000px ~ 142.85546875
      * This gives a conversion factor of 7. Also, we assume that pixels and font size are proportional.
      *
-     * @param     int $pValue    Value in pixels
-     * @param     PHPExcel_Style_Font $pDefaultFont    Default font of the workbook
-     * @return     int            Value in cell dimension
+     * @param int $pValue Value in pixels
+     * @param PHPExcel_Style_Font|null $pDefaultFont Default font of the workbook
+     * @return float|int Value in cell dimension
      */
-    public static function pixelsToCellDimension($pValue = 0, PHPExcel_Style_Font $pDefaultFont)
+    public static function pixelsToCellDimension(int $pValue = 0, PHPExcel_Style_Font $pDefaultFont = null): float|int
     {
         // Font name and size
-        $name = $pDefaultFont->getName();
-        $size = $pDefaultFont->getSize();
+        $name = $pDefaultFont ? $pDefaultFont->getName() : 'Calibri';
+        $size = $pDefaultFont ? $pDefaultFont->getSize() : 11;
 
         if (isset(PHPExcel_Shared_Font::$defaultColumnWidths[$name][$size])) {
             // Exact width can be determined
@@ -91,15 +91,15 @@ class PHPExcel_Shared_Drawing
     /**
      * Convert column width from (intrinsic) Excel units to pixels
      *
-     * @param     float    $pValue        Value in cell dimension
-     * @param     PHPExcel_Style_Font $pDefaultFont    Default font of the workbook
+     * @param float|int $pValue Value in cell dimension
+     * @param PHPExcel_Style_Font|null $pDefaultFont Default font of the workbook
      * @return     int        Value in pixels
      */
-    public static function cellDimensionToPixels($pValue = 0, PHPExcel_Style_Font $pDefaultFont)
+    public static function cellDimensionToPixels(float|int $pValue = 0, PHPExcel_Style_Font $pDefaultFont = null): int
     {
         // Font name and size
-        $name = $pDefaultFont->getName();
-        $size = $pDefaultFont->getSize();
+        $name = $pDefaultFont ? $pDefaultFont->getName() : 'Calibri';
+        $size = $pDefaultFont ? $pDefaultFont->getSize() : 11;
 
         if (isset(PHPExcel_Shared_Font::$defaultColumnWidths[$name][$size])) {
             // Exact width can be determined
