@@ -509,7 +509,7 @@ class PHPExcel_Calculation_TextData
      * @param string $newText    String to replace in defined position
      * @return    string
      */
-    public static function REPLACE(string $oldText = '', int $start = 1, int $chars = null, string $newText = ''): string
+    public static function REPLACE($oldText = '', $start = 1, $chars = null, $newText = ''): string
     {
         $oldText = PHPExcel_Calculation_Functions::flattenSingleValue($oldText);
         $start   = PHPExcel_Calculation_Functions::flattenSingleValue($start);

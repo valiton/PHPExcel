@@ -1474,7 +1474,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
      * @param $pValue PHPExcel_Style_Conditional[]
      * @return PHPExcel_Worksheet
      */
-    public function setConditionalStyles(string $pCoordinate = 'A1', array $pValue = [])
+    public function setConditionalStyles($pCoordinate = 'A1', $pValue = [])
     {
         $this->conditionalStylesCollection[strtoupper($pCoordinate)] = $pValue;
         return $this;
@@ -1489,7 +1489,7 @@ class PHPExcel_Worksheet implements PHPExcel_IComparable
      * @param int|null $pRow2 Numeric row coordinate of the range cell
      * @return PHPExcel_Style
      */
-    public function getStyleByColumnAndRow(int $pColumn = 0, int $pRow = 1, int $pColumn2 = null, int $pRow2 = null): PHPExcel_Style
+    public function getStyleByColumnAndRow($pColumn = 0, $pRow = 1, $pColumn2 = null, $pRow2 = null): PHPExcel_Style
     {
         if (!is_null($pColumn2) && !is_null($pRow2)) {
             $cellRange = PHPExcel_Cell::stringFromColumnIndex($pColumn) . $pRow . ':' . PHPExcel_Cell::stringFromColumnIndex($pColumn2) . $pRow2;

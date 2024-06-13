@@ -70,7 +70,7 @@ class PHPExcel_Shared_Drawing
      * @param PHPExcel_Style_Font|null $pDefaultFont Default font of the workbook
      * @return float|int Value in cell dimension
      */
-    public static function pixelsToCellDimension(int $pValue = 0, PHPExcel_Style_Font $pDefaultFont = null): float|int
+    public static function pixelsToCellDimension($pValue = 0, PHPExcel_Style_Font $pDefaultFont = null): float|int
     {
         // Font name and size
         $name = $pDefaultFont ? $pDefaultFont->getName() : 'Calibri';
@@ -91,11 +91,11 @@ class PHPExcel_Shared_Drawing
     /**
      * Convert column width from (intrinsic) Excel units to pixels
      *
-     * @param float|int $pValue Value in cell dimension
+     * @param float $pValue Value in cell dimension
      * @param PHPExcel_Style_Font|null $pDefaultFont Default font of the workbook
      * @return     int        Value in pixels
      */
-    public static function cellDimensionToPixels(float|int $pValue = 0, PHPExcel_Style_Font $pDefaultFont = null): int
+    public static function cellDimensionToPixels($pValue = 0, PHPExcel_Style_Font $pDefaultFont = null): int
     {
         // Font name and size
         $name = $pDefaultFont ? $pDefaultFont->getName() : 'Calibri';

@@ -65,14 +65,14 @@ class PHPExcel_NamedRange
     /**
      * Create a new NamedRange
      *
-     * @param string|null $pName
-     * @param PHPExcel_Worksheet|null $pWorksheet
+     * @param string $pName
+     * @param PHPExcel_Worksheet $pWorksheet
      * @param string $pRange
      * @param bool $pLocalOnly
      * @param PHPExcel_Worksheet|null $pScope Scope. Only applies when $pLocalOnly = true. Null for global scope.
      * @throws PHPExcel_Exception
      */
-    public function __construct(string $pName = null, PHPExcel_Worksheet $pWorksheet = null, string $pRange = 'A1', bool $pLocalOnly = false, PHPExcel_Worksheet $pScope = null)
+    public function __construct($pName = null, PHPExcel_Worksheet $pWorksheet = null, $pRange = 'A1', $pLocalOnly = false, $pScope = null)
     {
         // Validate data
         if (($pName === null) || ($pWorksheet === null) || ($pRange === null)) {
@@ -227,7 +227,7 @@ class PHPExcel_NamedRange
      * @param PHPExcel_Worksheet|null $pSheet Scope. Use null for global scope
      * @return PHPExcel_NamedRange|null
      */
-    public static function resolveRange(string $pNamedRange = '', PHPExcel_Worksheet $pSheet = null): ?PHPExcel_NamedRange
+    public static function resolveRange($pNamedRange = '', PHPExcel_Worksheet $pSheet = null): ?PHPExcel_NamedRange
     {
         if ($pSheet === null) {
             return null;
