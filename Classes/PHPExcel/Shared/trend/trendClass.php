@@ -75,10 +75,10 @@ class trendClass
      *
      * @var PHPExcel_Best_Fit[]
      **/
-    private static $trendCache = array();
+    private static $trendCache = [];
 
 
-    public static function calculate($trendType = self::TREND_BEST_FIT, $yValues, $xValues = array(), $const = true)
+    public static function calculate($trendType = self::TREND_BEST_FIT, $yValues = [], $xValues = [], $const = true)
     {
         //    Calculate number of points in each dataset
         $nY = count($yValues);
